@@ -8,7 +8,7 @@ async def on_ready():
     print('Bot is online')
 
 @bot.command()
-async def kiss(ctx, user: discord.User = None):
+async def smile(ctx, user: discord.User = None):
     async with aiohttp.ClientSession() as session:
         async with session.get(f"http://api.siesta.red:4444/smile") as response:
             image = await response.text()
