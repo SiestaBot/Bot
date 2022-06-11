@@ -11,12 +11,12 @@ async def on_ready():
 async def smile(ctx, user: discord.User = None):
     async with aiohttp.ClientSession() as session:
         async with session.get(f"http://api.siesta.red:4444/smile") as response:
-            image = await response.text()
+            json = await response.text()
     if user:
         embed = discord.Embed(title=f'{ctx.author.name} smiled {user.name}')
     else:
         embed = discord.Embed(title=f'{ctx.author.name} smiled someone')
-    embed.set_image(url=image)
+    embed.set_image(url=json)
     await ctx.send(embed=embed)
 
 bot.run('Bot-Token')
