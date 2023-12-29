@@ -10,7 +10,7 @@ async def on_ready():
 @bot.command()
 async def smile(ctx, user: discord.User = None):
     async with aiohttp.ClientSession() as session:
-        async with session.get(f"http://api.siesta.red:4444/smile") as response:
+        async with session.get(f"http://api.siesta.red:4444/smile") as response: # API will change in 2024
             json = await response.text()
     if user:
         embed = discord.Embed(title=f'{ctx.author.name} smiled {user.name}')
